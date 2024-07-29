@@ -1,0 +1,16 @@
+name: Stop EC2 Instance
+
+on: workflow_dispatch
+
+
+jobs:
+  StartInstance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python ENV
+        uses: actions/setup-python@v5
+        with: 
+          version: '3.10'
