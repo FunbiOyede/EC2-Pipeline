@@ -1,6 +1,4 @@
 import boto3
-import sys
-import json
 from botocore.exceptions import ClientError
 
 ec2 = boto3.client('ec2')

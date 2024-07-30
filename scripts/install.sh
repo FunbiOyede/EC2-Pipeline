@@ -1,1 +1,1 @@
-python -m pip uninstall boto3
+python -m pip install boto3
