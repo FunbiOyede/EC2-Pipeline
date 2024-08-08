@@ -6,6 +6,10 @@ on: workflow_dispatch
 jobs:
   StartInstance:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
     steps:
       - name: Fetch Code
         uses: actions/checkout@v4
@@ -18,5 +22,11 @@ jobs:
       - name: Install Packages
         run: pip install -r requirements.txt
       
+      - name: Get AWS Permissions
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: eu-west-1
+          role-to-assume: arn:aws:iam::975050176956:role/ec2ghactionstartstop
+          
       - name: Start Instance
         run: python init.py

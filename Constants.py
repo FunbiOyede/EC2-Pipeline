@@ -1,0 +1,5 @@
+Pending = 'Pending'
+Running = 'Running'
+Stopping = 'Stopping'
+Stopped = 'Stopped'
+AWS_SERVICE = 'ec2'
