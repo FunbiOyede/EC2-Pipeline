@@ -27,6 +27,6 @@ jobs:
         with:
           aws-region: eu-west-1
           role-to-assume: arn:aws:iam::975050176956:role/ec2ghactionstartstop
-          
+
       - name: Start Instance
-        run: python init.py
+        run: python start.py
