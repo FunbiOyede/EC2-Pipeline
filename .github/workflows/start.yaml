@@ -9,6 +9,10 @@ jobs:
     permissions:
       id-token: write
       contents: read
+    
+    env:
+      AWS_ARN_ROLE: ${{ secrets.AWS_ARN_ROLE }}
+      AWS_INSTANCE_NAME: ${{ secrets.EC2_INSTANCE_NAME }}
 
     steps:
       - name: Fetch Code
@@ -26,7 +30,10 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: eu-west-1
-          role-to-assume: arn:aws:iam::975050176956:role/ec2ghactionstartstop
+          role-to-assume: ${{ AWS_ARN_ROLE }}
 
       - name: Start Instance
         run: python start.py
+      
+      - name: Echo Steps
+        run: echo " ${{ steps }}"
