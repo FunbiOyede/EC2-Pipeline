@@ -29,7 +29,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: eu-west-1
-          role-to-assume: ${{ AWS_ARN_ROLE }}
+          role-to-assume: $AWS_ARN_ROLE
 
       - name: Stop Instance
         run: python stop.py
